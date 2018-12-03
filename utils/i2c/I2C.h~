@@ -1,0 +1,30 @@
+#ifndef __I2C_H__
+#define __12C_H__
+
+#define F_CPU 8000000UL
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include <util/delay.h>
+#include <stdlib.h>
+#include <math.h>
+
+#define F_SCL 400000
+#define F_SCL_PRESCALAR 1 
+#define BIT_RATE ((F_CPU / (F_SCL * F_SCL_PRESCALAR)) / 2) - 8
+
+#define DAC_ADDRESS 0b1100000
+#define AVR_ADDRESS 0b1110000
+
+void TWIInit(void);
+void TWIStart(void);
+void TWIStop(void);
+void TWIWrite(uint8_t u8data);
+uint8_t TWIReadACK(void);
+uint8_t TWIReadNACK(void);
+uint8_t TWIGetStatus(void);
+void DAC_Init(void);
+void DAC_Write(uint16_t data);
+void AVR_Init(void);
+void AVR_Write(uint16_t data);
+
+#endif
