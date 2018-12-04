@@ -1,5 +1,5 @@
 BUILDDIR = build
-UTILS = /home/teslaman/Documents/AVR/EE449/utils
+UTILS = utils
 F_CPU = 18432000UL
 #F_CPU = 8000000UL
 SOURCES += controller.c
