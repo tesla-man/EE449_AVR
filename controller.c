@@ -7,7 +7,7 @@
 #include "lcd.h"
 #include "i2c.h"
 
-uint32_t data;
+uint32_t data = 0;
 uint8_t datflg = 0;
 
 uint8_t task_bits = 0;
@@ -213,7 +213,7 @@ void Main_Screen(void){
 
 ISR(TWI_vect){ 
     static uint8_t index = 0;
-    static uint32_t buffer[BUFFER_SIZE];
+    static uint32_t buffer[BUFFER_SIZE] = {0,0,0,0};
 
     switch(i2cGetStatus()){
         case 0x60:
